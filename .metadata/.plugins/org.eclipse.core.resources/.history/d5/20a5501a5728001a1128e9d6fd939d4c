@@ -1,0 +1,29 @@
+package com.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.model.Employee;
+import com.repositary.EmployeeRepositary;
+@Repository
+public class EmployeeDaoImpl implements Employeedaoif{
+@Autowired
+EmployeeRepositary employeeRepositary;
+
+@Override
+public void createEmp(Employee employee) {
+	employeeRepositary.save(employee);
+	
+}
+
+@Override
+public List<Employee> viewAllEmp() {
+	// TODO Auto-generated method stub
+	return (List<Employee>) employeeRepositary.findAll();
+}
+
+
+
+}

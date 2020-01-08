@@ -1,0 +1,13 @@
+package com.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.repositary.EmployeeRepositary;
+
+public class EmployeeDaoImpl implements Employeedaoif{
+@Autowired
+EmployeeRepositary employeeRepositary;
+
+
+
+}

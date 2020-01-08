@@ -1,0 +1,75 @@
+package com.springBootStraterProject.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.springBootStraterProject.model.Customer;
+import com.springBootStraterProject.model.Product;
+
+@Service
+public class CustomerServiceImpl implements CustomerService {
+	
+
+	@Override
+
+	public Customer getCustomerById(int custId) {
+
+		Customer customer = null;
+
+		if (custId == 123) {
+
+			Product product1 = new Product(100, "cakes", 40f);
+
+			Product product2 = new Product(200, "choclates", 1000f);
+
+			Product product3 = new Product(500, "icecream", 20f);
+
+			List<Product> products = new ArrayList<Product>();
+
+			products.add(product1);
+
+			products.add(product2);
+
+			products.add(product3);
+
+			customer = new Customer();
+
+			customer.setCustId(123);
+
+			customer.setCustName("Teja");
+
+			customer.setProducts(products);
+
+		} else {
+
+			Product product1 = new Product(10, "orange", 40.0f);
+
+			Product product2 = new Product(20, "grapes", 30.0f);
+
+			Product product3 = new Product(50, "banana", 20.0f);
+
+			List<Product> products = new ArrayList<Product>();
+
+			products.add(product1);
+
+			products.add(product2);
+
+			products.add(product3);
+
+			customer = new Customer();
+
+			customer.setCustId(563);
+
+			customer.setCustName("Teju");
+
+			customer.setProducts(products);
+
+		}
+		return customer;
+
+	}
+
+}

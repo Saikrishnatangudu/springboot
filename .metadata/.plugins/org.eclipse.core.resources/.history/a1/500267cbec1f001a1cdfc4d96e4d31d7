@@ -1,0 +1,5 @@
+package com.springBootWithDao.dao;
+
+public interface userRepository {
+
+}

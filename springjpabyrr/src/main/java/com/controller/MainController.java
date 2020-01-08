@@ -1,0 +1,58 @@
+package com.controller;
+
+
+import java.util.List;
+
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.model.Employee;
+import com.service.EmployeeServiceif;
+
+@Controller
+public class MainController {
+	@Autowired
+	EmployeeServiceif employeeServiceif;
+	@Autowired
+	Employee employee;
+	
+	@RequestMapping("/")
+	 public String starter(){
+		return ("index");
+	}
+	
+	
+	@RequestMapping("/form")
+	 public ModelAndView form(   @ModelAttribute("employee" )Employee employee){
+		
+		return new ModelAndView("empForm");
+	}
+	
+	
+	@RequestMapping("/add")
+	 public ModelAndView addEmployee(@ModelAttribute("employee" )Employee employee){
+		employeeServiceif.createEmp(employee);
+		return new ModelAndView("redirect:view");
+	}
+
+	@RequestMapping("/view")
+	 public ModelAndView viewEmployee(@ModelAttribute("employee" )Employee employee){
+		List<Employee> empList=employeeServiceif.viewAllEmp();
+		return new ModelAndView("list","listofemployees",empList);
+	}
+	
+	@RequestMapping("/delete")
+	 public ModelAndView deleteEmployee( HttpServletRequest req ){
+		int id=Integer.parseInt(req.getParameter("id"));
+		
+		employeeServiceif.deleteEmp(id);
+		return new ModelAndView("redirect:view");
+	}
+	
+
+}

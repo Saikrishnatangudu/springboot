@@ -1,0 +1,21 @@
+package com.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.model.Employee;
+import com.repositary.EmployeeRepositary;
+@Repository
+public class EmployeeDaoImpl implements Employeedaoif{
+@Autowired
+EmployeeRepositary employeeRepositary;
+
+@Override
+public void createEmp(Employee employee) {
+	employeeRepositary.save(employee);
+	
+}
+
+
+
+}

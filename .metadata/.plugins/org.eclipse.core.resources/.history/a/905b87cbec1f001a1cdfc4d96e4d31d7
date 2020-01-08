@@ -1,0 +1,5 @@
+package com.springBootWithDao.model;
+
+public class User {
+
+}

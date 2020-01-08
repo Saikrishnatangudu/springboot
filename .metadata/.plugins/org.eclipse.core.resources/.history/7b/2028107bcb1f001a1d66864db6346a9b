@@ -1,0 +1,5 @@
+package com.springBootStraterProject.model;
+
+public class Customer {
+
+}

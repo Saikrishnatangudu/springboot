@@ -1,0 +1,46 @@
+package com.controller;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.model.Employee;
+import com.service.EmployeeServiceif;
+
+@Controller
+public class MainController {
+	@Autowired
+	EmployeeServiceif employeeServiceif;
+	
+	
+	@RequestMapping("/")
+	 public String starter(){
+		return ("index");
+	}
+	
+	
+	@RequestMapping("/form")
+	 public ModelAndView form(@ModelAttribute("employee" )Employee employee){
+		
+		return new ModelAndView("empForm");
+	}
+	
+	
+	@RequestMapping("/add")
+	 public ModelAndView addEmployee(@ModelAttribute("employee" )Employee employee){
+		employeeServiceif.createEmp(employee);
+		return new ModelAndView("success");
+	}
+
+	@RequestMapping("/view")
+	 public ModelAndView viewEmployee(@ModelAttribute("employee" )Employee employee){
+		List<Employee> empList=employeeServiceif.viewAllEmp(employee);
+		return new ModelAndView("success","listofemployees",empList);
+	}
+
+}

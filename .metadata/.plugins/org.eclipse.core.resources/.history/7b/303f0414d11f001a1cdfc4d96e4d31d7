@@ -1,0 +1,6 @@
+package com.springBootStraterProject.service;
+
+public interface CustomerService {
+	
+
+}

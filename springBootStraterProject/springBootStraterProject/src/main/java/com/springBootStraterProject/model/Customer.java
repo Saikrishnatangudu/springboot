@@ -1,0 +1,58 @@
+package com.springBootStraterProject.model;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
+public class Customer implements Serializable {
+
+	private int custId;
+
+	private String custName;
+
+	private List<Product> products;
+
+	public Customer() {
+
+		super();
+
+	}
+
+	public int getCustId() {
+
+		return custId;
+
+	}
+
+	public void setCustId(int custId) {
+
+		this.custId = custId;
+
+	}
+
+	public String getCustName() {
+
+		return custName;
+
+	}
+
+	public void setCustName(String custName) {
+
+		this.custName = custName;
+
+	}
+
+	public List<Product> getProducts() {
+
+		return products;
+
+	}
+
+	public void setProducts(List<Product> products) {
+
+		this.products = products;
+
+	}
+
+}

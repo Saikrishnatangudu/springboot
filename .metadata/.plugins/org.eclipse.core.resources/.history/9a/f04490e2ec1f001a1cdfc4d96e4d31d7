@@ -1,0 +1,20 @@
+package com.springBootWithDao.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springBootWithDao.model.User;
+
+@RestController
+public class userController {
+	
+	private userRepository
+	
+@RequestMapping
+public User getUserbyId(){
+	
+	
+	
+}
+
+}
